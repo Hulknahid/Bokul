@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header/Navbar";
 import { Routes, Route } from "react-router-dom";
@@ -9,8 +9,18 @@ import Reservation from "./components/Pages/Reservation";
 import GiftCard from "./components/Pages/GiftCard";
 import Contact from "./components/Pages/Contact";
 import Shop from "./components/Pages/Shop";
-
+import {AppAction} from './actions/app.action'
 function App() {
+
+  useEffect(()=>{
+    AppAction.getBusinessInfo().then(response=>{
+      console.log(response);
+    }).catch(e=>{
+      console.log(e);
+    })
+    
+  },[])
+
   return (
     <>
       <Header />

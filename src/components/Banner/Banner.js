@@ -18,36 +18,31 @@ const Banner = () => {
   // Sample items for Carousel
   const items = [
     {
-      caption: "Sample Caption One",
+      
       src: "/assets/images/banner-02.jpg",
       altText: "Slide One",
     },
     {
-      caption: "Sample Caption Two",
       src: "/assets/images/banner-01.jpg",
       altText: "Slide Two",
 
     },
     {
-      caption: "Sample Caption Three",
       src: "/assets/images/banner-03.jpg",
       altText: "Slide Three",
 
     },
     {
-      caption: "Sample Caption four",
       src: "/assets/images/banner-04.jpg",
       altText: "Slide four",
 
     },
     {
-      caption: "Sample Caption five",
       src: "/assets/images/banner-05.jpg",
       altText: "Slide five",
 
     },
     {
-      caption: "Sample Caption six",
       src: "/assets/images/banner-06.jpg",
       altText: "Slide six",
 
