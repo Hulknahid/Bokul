@@ -1,0 +1,7 @@
+.navbar_collapse{
+    transition: all .5s ease-in-out;
+}
+.logo-img{
+    width: 150px;
+    margin-left: 20px;
+}
