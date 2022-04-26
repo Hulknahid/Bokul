@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import {
   CardGroup,
   Card,
@@ -11,6 +12,17 @@ import {
 } from "reactstrap";
 
 const Shop = () => {
+  const [cards, setCards] = useState([])
+
+  useEffect(() => {
+    axios.get('inventory?locId=101&brndIds=1,3,2&page=0&pageCount=24').then(res => {
+      console.log(res.data);
+      setCards(res.data);
+    })
+  }, [])
+
+
+
   return (
     <>
       <div className="shop_container">
@@ -116,213 +128,36 @@ const Shop = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="col-md-4 col-10 mx-auto">
-                      <div className="shop_card my-3">
-                        <CardGroup>
-                          <Card className="card">
-                            <CardImg
-                              alt="Card image cap"
-                              src="https://zoracorp.s3.amazonaws.com/bianca/common/prdct/aveda/1406.png"
-                              top
-                              width="100%"
-                              className=''
-                            />
-                            <CardBody>
-                              <CardTitle tag="h5">AVEDA</CardTitle>
-                              <CardText>
-                                A GIFT OF RENEWAL FOR YOUR JOURNEY HAND RELIEF
-                                TRI
-                              </CardText>
-                              <CardText>$33.06</CardText>
-                            </CardBody>
-                          </Card>
-                        </CardGroup>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-10 mx-auto">
-                      <div className="shop_card my-3">
-                        <CardGroup>
-                          <Card>
-                            <CardImg
-                              alt="Card image cap"
-                              src="https://zoracorp.s3.amazonaws.com/bianca/common/prdct/aveda/324.png"
-                              top
-                              width="100%"
-                              className=''
-                            />
-                            <CardBody>
-                              <CardTitle tag="h5">AVEDA</CardTitle>
-                              <CardText>
-                                A GIFT OF RENEWAL FOR YOUR JOURNEY HAND RELIEF
-                                TRI
-                              </CardText>
-                              <CardText>$33.06</CardText>
-                            </CardBody>
-                          </Card>
-                        </CardGroup>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-10 mx-auto">
-                      <div className="shop_card my-3">
-                        <CardGroup>
-                          <Card>
-                            <CardImg
-                              alt="Card image cap"
-                              src="https://zoracorp.s3.amazonaws.com/bianca/common/prdct/aveda/1407.png"
-                              top
-                              width="100%"
-                              className=''
-                            />
-                            <CardBody>
-                              <CardTitle tag="h5">AVEDA</CardTitle>
-                              <CardText>
-                                A GIFT OF RENEWAL FOR YOUR JOURNEY HAND RELIEF
-                                TRI
-                              </CardText>
-                              <CardText>$33.06</CardText>
-                            </CardBody>
-                          </Card>
-                        </CardGroup>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-10 mx-auto">
-                      <div className="shop_card my-3">
-                        <CardGroup>
-                          <Card>
-                            <CardImg
-                              alt="Card image cap"
-                              src="https://zoracorp.s3.amazonaws.com/bianca/common/prdct/aveda/1408.png"
-                              top
-                              width="100%"
-                              className=''
-                            />
-                            <CardBody>
-                              <CardTitle tag="h5">AVEDA</CardTitle>
-                              <CardText>
-                                A GIFT OF RENEWAL FOR YOUR JOURNEY HAND RELIEF
-                                TRI
-                              </CardText>
-                              <CardText>$33.06</CardText>
-                            </CardBody>
-                          </Card>
-                        </CardGroup>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-10 mx-auto">
-                      <div className="shop_card my-3">
-                        <CardGroup>
-                          <Card>
-                            <CardImg
-                              alt="Card image cap"
-                              src="https://zoracorp.s3.amazonaws.com/bianca/common/prdct/kevin-murphy/1022.png"
-                              top
-                              width="100%"
-                              className=''
-                            />
-                            <CardBody>
-                              <CardTitle tag="h5">AVEDA</CardTitle>
-                              <CardText>
-                                A GIFT OF RENEWAL FOR YOUR JOURNEY HAND RELIEF
-                                TRI
-                              </CardText>
-                              <CardText>$33.06</CardText>
-                            </CardBody>
-                          </Card>
-                        </CardGroup>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-10 mx-auto">
-                      <div className="shop_card my-3">
-                        <CardGroup>
-                          <Card>
-                            <CardImg
-                              alt="Card image cap"
-                              src="https://zoracorp.s3.amazonaws.com/bianca/common/prdct/aveda/1406.png"
-                              top
-                              width="100%"
-                              className=''
-                            />
-                            <CardBody>
-                              <CardTitle tag="h5">AVEDA</CardTitle>
-                              <CardText>
-                                A GIFT OF RENEWAL FOR YOUR JOURNEY HAND RELIEF
-                                TRI
-                              </CardText>
-                              <CardText>$33.06</CardText>
-                            </CardBody>
-                          </Card>
-                        </CardGroup>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-10 mx-auto">
-                      <div className="shop_card my-3">
-                        <CardGroup>
-                          <Card>
-                            <CardImg
-                              alt="Card image cap"
-                              src="https://zoracorp.s3.amazonaws.com/bianca/common/prdct/aveda/1406.png"
-                              top
-                              width="100%"
-                              className=''
-                            />
-                            <CardBody>
-                              <CardTitle tag="h5">AVEDA</CardTitle>
-                              <CardText>
-                                A GIFT OF RENEWAL FOR YOUR JOURNEY HAND RELIEF
-                                TRI
-                              </CardText>
-                              <CardText>$33.06</CardText>
-                            </CardBody>
-                          </Card>
-                        </CardGroup>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-10 mx-auto">
-                      <div className="shop_card my-3">
-                        <CardGroup>
-                          <Card>
-                            <CardImg
-                              alt="Card image cap"
-                              src="https://zoracorp.s3.amazonaws.com/bianca/common/prdct/aveda/1406.png"
-                              top
-                              width="100%"
-                              className=''
-                            />
-                            <CardBody>
-                              <CardTitle tag="h5">AVEDA</CardTitle>
-                              <CardText>
-                                A GIFT OF RENEWAL FOR YOUR JOURNEY HAND RELIEF
-                                TRI
-                              </CardText>
-                              <CardText>$33.06</CardText>
-                            </CardBody>
-                          </Card>
-                        </CardGroup>
-                      </div>
-                    </div>
-                    <div className="col-md-4 col-10 mx-auto">
-                      <div className="shop_card my-3">
-                        <CardGroup>
-                          <Card>
-                            <CardImg
-                              alt="Card image cap"
-                              src="https://zoracorp.s3.amazonaws.com/bianca/common/prdct/aveda/1406.png"
-                              top
-                              width="100%"
-                              className=''
-                            />
-                            <CardBody>
-                              <CardTitle tag="h5">AVEDA</CardTitle>
-                              <CardText>
-                                A GIFT OF RENEWAL FOR YOUR JOURNEY HAND RELIEF
-                                TRI
-                              </CardText>
-                              <CardText>$33.06</CardText>
-                            </CardBody>
-                          </Card>
-                        </CardGroup>
-                      </div>
-                    </div>
+                    {
+                      cards.map((e) => {
+                        console.log(e)
+                        return (
+                          <div className="col-md-4 col-10 mx-auto">
+                            <div className="shop_card my-3">
+                              <CardGroup>
+                                <Card className="card">
+                                  <CardImg
+                                    alt="Card image cap"
+                                    src={e.variant.imageUrls[0]}
+                                    top
+                                    width="100%"
+                                    className=''
+                                  />
+                                  <CardBody>
+                                    <CardTitle tag="h5">{e.variant.product.brand.name}</CardTitle>
+                                    <CardText>
+                                      {e.variant.product.name}
+                                    </CardText>
+                                    <CardText>{e.salePrice}</CardText>
+                                  </CardBody>
+                                </Card>
+                              </CardGroup>
+                            </div>
+                          </div>
+                        )
+                      })
+                    }
+
                   </div>
                 </div>
               </div>
