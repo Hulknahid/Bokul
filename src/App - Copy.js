@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header/Navbar";
 import { Routes, Route } from "react-router-dom";
-import axios from "axios"
-
 import Home from "./components/Pages/Home";
 import Footer from "./components/Footer/Footer";
 import TheSalon from "./components/Pages/TheSalon";
@@ -11,32 +9,17 @@ import Reservation from "./components/Pages/Reservation";
 import GiftCard from "./components/Pages/GiftCard";
 import Contact from "./components/Pages/Contact";
 import Shop from "./components/Pages/Shop";
+import axios from "axios";
+
 function App() {
-
-  // useEffect(()=>{
-  //   axios.get('businesses/123456789')
-  //     .then(res => {
-  //       // console.log("app", res.data);
-  //       localStorage.setItem("app-settings", JSON.stringify(res.data))
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     })
-
-  // },[])
-
-
-
-
   useEffect(() => {
-    axios.get("businesses/123456789").then(res => {
-      console.log(res)
-      localStorage.setItem("app-settings", JSON.stringify(res.data))
-      console.log(res.data)
+    axios.get('businesses/123456789').then(res => {
+      localStorage.set('app-settings', JSON.stringify(res.data))
     }).catch(err => {
       console.log(err)
     })
   }, []);
+
   return (
     <>
       <Header />

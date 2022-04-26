@@ -14,19 +14,11 @@ const Banner = () => {
 
   // State for Animation
   const [animating, setAnimating] = React.useState(false);
-  // const getAppSetting = localStorage.getItem("app-settings");
-  // const parsData = JSON.parse(getAppSetting)
+  const getAppSetting = localStorage.getItem('app-setting');
+  const parsData= JSON.parse(getAppSetting);
+  const items = parsData.activeBannerAds.WebDesktop;
 
-
-
-
-
-  const getAppSetting = localStorage.getItem("app-settings");
-  const parsData = JSON.parse(getAppSetting);
-  console.log("parsData", parsData);
-  const items = parsData && parsData.activeBannerAds.WebDesktop ? parsData.activeBannerAds.WebDesktop : [];
-
-  // const items = [];
+  
 
   // Items array length
   const itemLength = items.length - 1;
@@ -49,23 +41,23 @@ const Banner = () => {
   const carouselItemData = items.map((item) => {
     return (
       <CarouselItem
-        className="custom-tag"
+      className="custom-tag"
         key={item.src}
         onExited={() => setAnimating(false)}
         onExiting={() => setAnimating(true)}
       >
-        <img src={item.src} alt={item.altText} className='custom-tag' />
+        <img src={item.src} alt={item.altText} className='custom-tag'/>
       </CarouselItem>
     );
   });
 
-
-
+  
+  
 
   return (
     <div>
-      <style>
-        {`.custom-tag {
+         <style>
+           {`.custom-tag {
           max-width: 100%;
           height: 90vh;
           background: url("assets/images/banner-03.jpg");

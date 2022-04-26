@@ -14,6 +14,8 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
+import { Link } from "react-router-dom";
+
 
 const Header = () => {
   const [show, setShow] = useState(false);
@@ -39,19 +41,19 @@ const Header = () => {
             {/*<Collapse navbar className={classnames({ show: show === true })}>*/}
             <Nav className="mx-auto" navbar>
               <NavItem>
-                <NavLink href="/Salon/">The Salon</NavLink>
+                <Link className="nav-link" to="/Salon/">The Salon</Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/Shop/">Shop</NavLink>
+                <Link className="nav-link"  to="/Shop/">Shop</Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/Reservation/">Reservation</NavLink>
+                <Link className="nav-link" to="/Reservation/">Reservation</Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/GiftCard/">Gift Card</NavLink>
+                <Link className="nav-link" to="/GiftCard/">Gift Card</Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/Contact/">Contact Us </NavLink>
+                <Link className="nav-link" to="/Contact/">Contact Us </Link>
               </NavItem>
             </Nav>
           </Collapse>

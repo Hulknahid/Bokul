@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../Card/CardItem.css";
 
-const SimpleSlider = () => {
+const SimpleSlider = (props) => {
   // const settings = {
   //   dots: true,
   //   infinite: true,
@@ -59,126 +59,28 @@ const SimpleSlider = () => {
     <>
       <div className="card_container">
         <Slider {...settings}>
-          <div className="mt-5">
-            <figure className="card_img">
-              <img
-                src="assets/images/card-01.png"
-                alt=""
-                className="card_images"
-              />
-            </figure>
-            <div className="card_info">
-          
-            <h3>MAXI.WASH - 250ML</h3>
-              <h4>kevin murphy</h4>
-              <p>$ 31.70</p>
-            </div>
-          </div>
 
-          <div className="mt-5">
-            <figure className="card_img">
-              <img
-                src="assets/images/card-02.png"
-                alt=""
-                className="card_images"
-              />
-            </figure>
-            <div className="card_info">
-              <h3>MAXI.WASH - 250ML</h3>
-              <h4>martin</h4>
-              <p>$ 29.70</p>
-            </div>
-          </div>
+          {
+            props.products.map((e) => {
+              console.log(e.variant);
+              return <div className="mt-5">
+                <figure className="card_img">
+                  <img
+                    src={e.variant.imageUrls[0]}
+                    alt=""
+                    className="card_images"
+                  />
+                </figure>
+                <div className="card_info">
 
-          <div className="mt-5">
-            <figure className="card_img">
-              <img
-                src="assets/images/card-03.png"
-                alt=""
-                className="card_images"
-              />
-            </figure>
-            <div className="card_info">
-              <h3>MAXI.WASH - 250ML</h3>
-              <h4>kevin murphy</h4>
-              <p>$ 31.70</p>
-            </div>
-          </div>
-
-          <div className="mt-5">
-            <figure className="card_img">
-              <img
-                src="assets/images/card-04.png"
-                alt=""
-                className="card_images"
-              />
-            </figure>
-            <div className="card_info">
-              <h3>MAXI.WASH - 250ML</h3>
-              <h4>kevin murphy</h4>
-              <p>$ 31.70</p>
-            </div>
-          </div>
-
-          <div className="mt-5">
-            <figure className="card_img">
-              <img
-                src="assets/images/card-05.png"
-                alt=""
-                className="card_images"
-              />
-            </figure>
-            <div className="card_info">
-              <h3>MAXI.WASH - 250ML</h3>
-              <h4>kevin murphy</h4>
-              <p>$ 31.70</p>
-            </div>
-          </div>
-
-          <div className="mt-5">
-            <figure className="card_img">
-              <img
-                src="assets/images/card-06.png"
-                alt=""
-                className="card_images"
-              />
-            </figure>
-            <div className="card_info">
-              <h3>MAXI.WASH - 250ML</h3>
-              <h4>kevin murphy</h4>
-              <p>$ 31.70</p>
-            </div>
-          </div>
-
-          <div className="mt-5">
-            <figure className="card_img">
-              <img
-                src="assets/images/card-07.png"
-                alt=""
-                className="card_images"
-              />
-            </figure>
-            <div className="card_info">
-              <h3>MAXI.WASH - 250ML</h3>
-              <h4>kevin murphy</h4>
-              <p>$ 31.70</p>
-            </div>
-          </div>
-
-          <div className="mt-5">
-            <figure className="card_img">
-              <img
-                src="assets/images/card-08.png"
-                alt=""
-                className="card_images"
-              />
-            </figure>
-            <div className="card_info">
-              <h3>MAXI.WASH - 250ML</h3>
-              <h4>kevin murphy</h4>
-              <p>$ 31.70</p>
-            </div>
-          </div>
+                  <h3>{e.variant.product.brand.name}</h3>
+                  <h6>{e.variant.product.id} - 250ML</h6>
+                  <p>$ 31.70</p>
+                </div>
+              </div>
+            })
+            // console.log(typeof props.name)
+          }
         </Slider>
       </div>
     </>
