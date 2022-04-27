@@ -1,7 +1,45 @@
-import Button from "../Button/Button";
-import React from "react";
+import React, { useState } from "react";
 import { Label, FormGroup, Input } from "reactstrap";
 const Contact = () => {
+  const [user, setUser] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  })
+  const [users, setUsers] = useState([])
+
+  const changeHandler = (event) => {
+    const { name, value } = event.target;
+    setUser({ ...user, [name]: value })
+    console.log(name, value)
+    // alert(name, value)
+  }
+
+  const submiteHandler = (e) => {
+    e.preventDefault();
+    let { name, email, subject, message } = user;
+    let userJSON = { name, email, subject, message };
+
+    console.log(users);
+
+    let list = users;
+    list.push(userJSON);
+    alert(JSON.stringify(list))
+    localStorage.setItem('@USER', JSON.stringify(list));
+    setUsers([...list]);
+    clearState();
+  }
+
+  const clearState = () => {
+    setUser({
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+    })
+  }
+
   return (
     <div className="container my-md-5">
       <div className="row">
@@ -25,47 +63,64 @@ const Contact = () => {
                   <div className="row">
                     <div className="col-6 mb-3">
                       <FormGroup>
-                        <Label for="exampleEmail">NAME*</Label>
+                        <Label for="name">NAME*</Label>
                         <Input
-                          id="exampleEmail"
-                          name="text"
-                          type="email"
+                          id="name"
+                          name="name"
+                          type="text"
+                          value={user.name}
+                          onChange={changeHandler}
+                          placeholder='Enter your Name'
                         />
                       </FormGroup>
                     </div>
                     <div className="col-6 mb-3">
                       <FormGroup>
-                        <Label for="exampleEmail">EMAIL*</Label>
+                        <Label for="email">EMAIL*</Label>
                         <Input
-                          id="exampleEmail"
+                          id="email"
                           name="email"
                           type="email"
+                          value={user.email}
+                          onChange={changeHandler}
+                          placeholder='Enter your email'
                         />
                       </FormGroup>
                     </div>
                     <div className="col-12 mb-3">
                       <FormGroup>
-                        <Label for="exampleEmail">SUBJECT*</Label>
-                        <Input type="text" id="subject" name="subject"/>
+                        <Label for="subject">SUBJECT*</Label>
+                        <Input type="text"
+                          id="subject"
+                          name="subject"
+                          value={user.subject}
+                          onChange={changeHandler}
+                          placeholder='Enter subject' />
                       </FormGroup>
                     </div>
                     <div className="col-12 mb-2">
                       <FormGroup>
-                        <Label for="exampleText">MESSAGE*</Label>
-                        <Input id="exampleText" name="text" type="text" className="message"/>
+                        <Label for="message">MESSAGE*</Label>
+                        <Input
+                          id="message"
+                          name="message"
+                          type="text"
+                          value={user.message}
+                          onChange={changeHandler}
+                          placeholder='Enter message' />
                       </FormGroup>
                     </div>
                     <div className="form_btn">
-                    <Button buttonStyle='btn--primary' buttonSize='btn--medium'>SUBMIT</Button>
+                      <button onClick={submiteHandler} className="contact-btn">SUBMIT</button>
+
                     </div>
                   </div>
                 </form>
                 <div className="business_btn mb-4">
-                <button className="contact_btn">Business hours</button>
+                  <button className="contact_btn">Business hours</button>
                 </div>
                 <div className="gift_card_btn">
-                <button className="contact_btn fs-6">buy gift cards</button>
-
+                  <button className="contact_btn fs-6">buy gift cards</button>
                 </div>
               </div>
             </div>

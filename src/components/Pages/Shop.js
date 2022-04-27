@@ -68,44 +68,44 @@ const Shop = () => {
                     <i className="fa fa-angle-down" />
                   </div>
                   <div className="shop_check mb-2">
-                    <div class="form-check">
-                      <label class="form-check-label" for="flexCheckChecked">
+                    <div className="form-check">
+                      <label className="form-check-label" htmlFor="flexCheckChecked">
                         AVEDA
                       </label>
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="checkbox"
                         value=""
                         id="flexCheckChecked"
-                        checked
+                        defaultChecked
                       />
                     </div>
                   </div>
                   <div className="shop_check mb-2">
-                    <div class="form-check">
-                      <label class="form-check-label" for="flexCheckChecked">
+                    <div className="form-check">
+                      <label className="form-check-label" htmlFor="flexCheckChecked">
                         KEVIN MURPHY
                       </label>
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="checkbox"
                         value=""
                         id="flexCheckChecked"
-                        checked
+                        defaultChecked
                       />
                     </div>
                   </div>
                   <div className="shop_check">
-                    <div class="form-check">
-                      <label class="form-check-label" for="flexCheckChecked">
+                    <div className="form-check">
+                      <label className="form-check-label" htmlFor="flexCheckChecked">
                         LIVING PROOF
                       </label>
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="checkbox"
                         value=""
                         id="flexCheckChecked"
-                        checked
+                        defaultChecked 
                       />
                     </div>
                   </div>
@@ -115,7 +115,7 @@ const Shop = () => {
                     <div className="col-12">
                       <div className="row d-flex align-items-center">
                         <div className="col-md-6 col-6">
-                          <p className="mb-0 text-muted ">showing24products</p>
+                          <p className="mb-0 text-muted ">{`showing ${cards && cards.length} products`}</p>
                         </div>
                         <div className="col-md-6 col-6">
                           <div className="shop_arrow ">

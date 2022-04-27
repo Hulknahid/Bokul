@@ -11,22 +11,8 @@ import Reservation from "./components/Pages/Reservation";
 import GiftCard from "./components/Pages/GiftCard";
 import Contact from "./components/Pages/Contact";
 import Shop from "./components/Pages/Shop";
+import Products from "./components/Pages/ProductsD";
 function App() {
-
-  // useEffect(()=>{
-  //   axios.get('businesses/123456789')
-  //     .then(res => {
-  //       // console.log("app", res.data);
-  //       localStorage.setItem("app-settings", JSON.stringify(res.data))
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     })
-
-  // },[])
-
-
-
 
   useEffect(() => {
     axios.get("businesses/123456789").then(res => {
@@ -39,6 +25,7 @@ function App() {
   }, []);
   return (
     <>
+    <Products/>
       <Header />
       <Routes>
         <Route exact path="/" element={<Home />} />
