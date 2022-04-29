@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Form, FormGroup, Label, Input } from "reactstrap";
-// import axios from "axios";
-// import Buffer from "buffer";
+import axios from 'axios';
+window.Buffer = window.Buffer || require("buffer").Buffer;
+
+
+
 const Reservation = () => {
   const [user, setUser] = useState({
     email: '',
@@ -20,13 +23,20 @@ const Reservation = () => {
     e.preventDefault();
     let { email, password } = user;
 
-    // const hash = Buffer.from(`${email}#user:${password}`).toString('base64');
-    // console.log(hash);
+    const hash = Buffer.from(`${email}#user:${password}`).toString('base64');
+    console.log(hash);
+    const requestOptions = {
+      headers: {
+          'Authorization': `Basic ${hash}`
+      }
+  };
 
-    // axios.get('users/token').then(res =>{
-
-    // })
-
+    axios.get('users/token', requestOptions).then(res =>{
+    console.log(res.data);
+    }).catch(err =>{
+      console.log(err.response);
+    });
+  
 
   }
   return (

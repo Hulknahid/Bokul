@@ -1,44 +1,71 @@
 import React, { useState } from "react";
 import { Label, FormGroup, Input } from "reactstrap";
+import axios from "axios";
 const Contact = () => {
   const [user, setUser] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  })
-  const [users, setUsers] = useState([])
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [users, setUsers] = useState([]);
 
   const changeHandler = (event) => {
     const { name, value } = event.target;
-    setUser({ ...user, [name]: value })
-    console.log(name, value)
-    // alert(name, value)
-  }
-
+    setUser({ ...user, [name]: value });
+    console.log(name, value);
+  };
   const submiteHandler = (e) => {
+    const { name, email, subject, message } = user;
     e.preventDefault();
-    let { name, email, subject, message } = user;
-    let userJSON = { name, email, subject, message };
+    // const data = {
+    //   name: name,
+    //   contactEmail: email,
+    //   subject: subject,
+    //   body: message,
+    //   location: {
+    //     id: 101,
+    //   },
+    // };
 
-    console.log(users);
+    // axios
+    //   .post("inquiries", data)
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   })
+    //   .catch(err.response);
 
-    let list = users;
-    list.push(userJSON);
-    alert(JSON.stringify(list))
-    localStorage.setItem('@USER', JSON.stringify(list));
-    setUsers([...list]);
-    clearState();
+    // clearState();
+
+
+  const data = {
+    name:name,
+    contactEmail: email,
+    subject: subject,
+    body: message,
+    location: {
+      id: 101,
+    }
   }
+
+
+
+
+    axios.post('inquiries', data).then(res =>{
+      console.log(res.data);
+    }).catch(err=>{
+      console.log(err.response);
+    })
+  };
 
   const clearState = () => {
     setUser({
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-    })
-  }
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+  };
 
   return (
     <div className="container my-md-5">
@@ -70,7 +97,7 @@ const Contact = () => {
                           type="text"
                           value={user.name}
                           onChange={changeHandler}
-                          placeholder='Enter your Name'
+                          placeholder="Enter your Name"
                         />
                       </FormGroup>
                     </div>
@@ -83,19 +110,21 @@ const Contact = () => {
                           type="email"
                           value={user.email}
                           onChange={changeHandler}
-                          placeholder='Enter your email'
+                          placeholder="Enter your email"
                         />
                       </FormGroup>
                     </div>
                     <div className="col-12 mb-3">
                       <FormGroup>
                         <Label for="subject">SUBJECT*</Label>
-                        <Input type="text"
+                        <Input
+                          type="text"
                           id="subject"
                           name="subject"
                           value={user.subject}
                           onChange={changeHandler}
-                          placeholder='Enter subject' />
+                          placeholder="Enter subject"
+                        />
                       </FormGroup>
                     </div>
                     <div className="col-12 mb-2">
@@ -107,12 +136,14 @@ const Contact = () => {
                           type="text"
                           value={user.message}
                           onChange={changeHandler}
-                          placeholder='Enter message' />
+                          placeholder="Enter message"
+                        />
                       </FormGroup>
                     </div>
                     <div className="form_btn">
-                      <button onClick={submiteHandler} className="contact-btn">SUBMIT</button>
-
+                      <button onClick={submiteHandler} className="contact-btn">
+                        SUBMIT
+                      </button>
                     </div>
                   </div>
                 </form>

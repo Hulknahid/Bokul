@@ -11,7 +11,7 @@ import Reservation from "./components/Pages/Reservation";
 import GiftCard from "./components/Pages/GiftCard";
 import Contact from "./components/Pages/Contact";
 import Shop from "./components/Pages/Shop";
-import Products from "./components/Pages/ProductsD";
+// import Products from "./components/Pages/ProductsD";
 function App() {
 
   useEffect(() => {
@@ -25,7 +25,7 @@ function App() {
   }, []);
   return (
     <>
-    <Products/>
+    {/* <Products/> */}
       <Header />
       <Routes>
         <Route exact path="/" element={<Home />} />
