@@ -3,19 +3,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../Card/CardItem.css";
+import {Link} from "react-router-dom"
 
 const SimpleSlider = (props) => {
-  // const settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   slidesToShow: 3,
-  //   slidesToScroll: 1,
-  //   autoplay: true,
-  //   speed: 2000,
-  //   autoplaySpeed: 2000,
-  //   cssEase: "linear"
-  // };
-
   var settings = {
     dots: false,
     infinite: true,
@@ -59,26 +49,28 @@ const SimpleSlider = (props) => {
     <>
       <div className="card_container">
         <Slider {...settings}>
-
           {
             props.products.map((e) => {
-              console.log(e.variant);
-              return <div className="mt-5">
+              // console.log("cardItems:", e.variant);
+              return (
+             <Link to={`/products/${e.id}`}>
+              <div className="mt-5">
                 <figure className="card_img">
                   <img
                     src={e.variant.imageUrls[0]}
-                    alt=""
+                    alt="nahid hasan"
                     className="card_images"
                   />
                 </figure>
                 <div className="card_info">
 
-                  <h3>{e.variant.product.brand.name}</h3>
-                  <h6>{e.variant.product.id} - 250ML</h6>
-                  <p>$ 31.70</p>
+                  <h3>{e.variant.product.name}</h3>
+                  <h6>{e.variant.product.brand.name} - {e.variant.product.brand.mappedVisualAttributeValues}</h6>
+                  <p>$ {e.salePrice}</p>
                 </div>
               </div>
-            })
+              </Link>
+            )})
             // console.log(typeof props.name)
           }
         </Slider>

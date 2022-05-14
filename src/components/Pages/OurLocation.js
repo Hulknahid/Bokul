@@ -8,7 +8,8 @@ import {
   CarouselIndicators,
 } from "reactstrap";
 import axios from "axios";
-const Banner = () => {
+
+const OurLocation = () => {
   // State Settings
   const [appSettings, setAppSettings] = useState({});
 
@@ -18,8 +19,7 @@ const Banner = () => {
   // State for Active index
   const [activeIndex, setActiveIndex] = React.useState(0);
 
-
-  //useEffect here 
+  //useEffect here
   useEffect(() => {
     axios
       .get("businesses/123456789")
@@ -77,11 +77,19 @@ const Banner = () => {
       </CarouselItem>
     );
   });
-
   return (
-    <div>
-      <style>
-        {`.custom-tag {
+    <>
+      <div className="container my-5">
+        <div className="row">
+          <div className="col-md-10 col-10 mx-auto">
+            <h1 className="text-center my-3">Our Location</h1>
+            <div className="row">
+              <div className="col-md-10 col-12 mx-auto">
+                {/* mini banner started */}
+
+                <div>
+                  <style>
+                    {`.custom-tag {
           max-width: 100%;
           height: 90vh;
           background: url("assets/images/banner-03.jpg");
@@ -89,34 +97,42 @@ const Banner = () => {
           background-position: center center;
           background-size: cover;
         }`}
-      </style>
-      <Carousel
-        previous={previousButton}
-        next={nextButton}
-        activeIndex={activeIndex}
-      >
-        <CarouselIndicators
-          items={items}
-          activeIndex={activeIndex}
-          onClickHandler={(newIndex) => {
-            if (animating) return;
-            setActiveIndex(newIndex);
-          }}
-        />
-        {carouselItemData}
-        <CarouselControl
-          directionText="Prev"
-          direction="prev"
-          onClickHandler={previousButton}
-        />
-        <CarouselControl
-          directionText="Next"
-          direction="next"
-          onClickHandler={nextButton}
-        />
-      </Carousel>
-    </div>
+                  </style>
+                  <Carousel
+                    previous={previousButton}
+                    next={nextButton}
+                    activeIndex={activeIndex}
+                  >
+                    <CarouselIndicators
+                      items={items}
+                      activeIndex={activeIndex}
+                      onClickHandler={(newIndex) => {
+                        if (animating) return;
+                        setActiveIndex(newIndex);
+                      }}
+                    />
+                    {carouselItemData}
+                    <CarouselControl
+                      directionText="Prev"
+                      direction="prev"
+                      onClickHandler={previousButton}
+                    />
+                    <CarouselControl
+                      directionText="Next"
+                      direction="next"
+                      onClickHandler={nextButton}
+                    />
+                  </Carousel>
+                </div>
+
+                {/* //mini banner ended */}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
-export default Banner;
+export default OurLocation;

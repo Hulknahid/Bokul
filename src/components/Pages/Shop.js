@@ -12,16 +12,16 @@ import {
 } from "reactstrap";
 
 const Shop = () => {
-  const [cards, setCards] = useState([])
+  const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    axios.get('inventory?locId=101&brndIds=1,3,2&page=0&pageCount=24').then(res => {
-      console.log(res.data);
-      setCards(res.data);
-    })
-  }, [])
-
-
+    axios
+      .get("inventory?locId=101&brndIds=1,3,2&page=0&pageCount=24")
+      .then((res) => {
+        // console.log(res.data);
+        setCards(res.data);
+      });
+  }, []);
 
   return (
     <>
@@ -69,7 +69,10 @@ const Shop = () => {
                   </div>
                   <div className="shop_check mb-2">
                     <div className="form-check">
-                      <label className="form-check-label" htmlFor="flexCheckChecked">
+                      <label
+                        className="form-check-label"
+                        htmlFor="flexCheckChecked"
+                      >
                         AVEDA
                       </label>
                       <input
@@ -83,7 +86,10 @@ const Shop = () => {
                   </div>
                   <div className="shop_check mb-2">
                     <div className="form-check">
-                      <label className="form-check-label" htmlFor="flexCheckChecked">
+                      <label
+                        className="form-check-label"
+                        htmlFor="flexCheckChecked"
+                      >
                         KEVIN MURPHY
                       </label>
                       <input
@@ -97,7 +103,10 @@ const Shop = () => {
                   </div>
                   <div className="shop_check">
                     <div className="form-check">
-                      <label className="form-check-label" htmlFor="flexCheckChecked">
+                      <label
+                        className="form-check-label"
+                        htmlFor="flexCheckChecked"
+                      >
                         LIVING PROOF
                       </label>
                       <input
@@ -105,7 +114,7 @@ const Shop = () => {
                         type="checkbox"
                         value=""
                         id="flexCheckChecked"
-                        defaultChecked 
+                        defaultChecked
                       />
                     </div>
                   </div>
@@ -115,7 +124,9 @@ const Shop = () => {
                     <div className="col-12">
                       <div className="row d-flex align-items-center">
                         <div className="col-md-6 col-6">
-                          <p className="mb-0 text-muted ">{`showing ${cards && cards.length} products`}</p>
+                          <p className="mb-0 text-muted ">{`showing ${
+                            cards && cards.length
+                          } products`}</p>
                         </div>
                         <div className="col-md-6 col-6">
                           <div className="shop_arrow ">
@@ -128,23 +139,25 @@ const Shop = () => {
                         </div>
                       </div>
                     </div>
-                    {
-                      cards.map((e) => {
-                        console.log(e)
-                        return (
-                          <div className="col-md-4 col-10 mx-auto">
+                    {cards.map((e) => {
+                      // console.log(e);
+                      return (
+                        <div className="col-md-4 col-10 mx-auto" >
+                          <Link to={`/products/${e.id}`} className="text-dark">
                             <div className="shop_card my-3">
                               <CardGroup>
-                                <Card className="card">
+                                <Card className="card" style={{minHeight: "420px"}}>
                                   <CardImg
                                     alt="Card image cap"
                                     src={e.variant.imageUrls[0]}
                                     top
                                     width="100%"
-                                    className=''
+                                    className=""
                                   />
                                   <CardBody>
-                                    <CardTitle tag="h5">{e.variant.product.brand.name}</CardTitle>
+                                    <CardTitle tag="h5">
+                                      {e.variant.product.brand.name}
+                                    </CardTitle>
                                     <CardText>
                                       {e.variant.product.name}
                                     </CardText>
@@ -153,11 +166,10 @@ const Shop = () => {
                                 </Card>
                               </CardGroup>
                             </div>
-                          </div>
-                        )
-                      })
-                    }
-
+                          </Link>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>

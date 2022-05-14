@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, {useState, useEffect} from "react";
 import "../Card/Card.css";
 import Button from "../Button/Button";
 import SimpleSlider from "./CardItem";
-import axios from "axios";
+import axios from 'axios';
 
 const Card = () => {
 
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    axios.get('inventory/recommendation?locId=101').then(res => {
+  
+  const [products, setProducts] = useState([])
+  useEffect(()=>{
+    axios.get('inventory/recommendation?locId=101').then(res =>{
+      // console.log("card:", res.data);
       setProducts(res.data.newArrivals)
-    }).catch(err => {
-      console.log(err)
+    }).catch(err =>{
+      console.log(err.response);
     })
   }, []);
-
-  // console.log(products.newArrivals);
-
+  // console.log('products:', products);
   return (
     <div className="card_section">
       <div className="container-fluid my-4">
@@ -41,7 +40,7 @@ const Card = () => {
         </div>
         <div className="row">
           <div className="col-12">
-            <SimpleSlider products={products} />
+            <SimpleSlider products={products}/>
           </div>
         </div>
       </div>

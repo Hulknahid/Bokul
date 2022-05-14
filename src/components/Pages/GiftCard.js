@@ -1,5 +1,6 @@
 import React from "react";
-import Button from '../Button/Button'
+import { Link } from "react-router-dom";
+import Button from "../Button/Button";
 
 const GiftCard = () => {
   return (
@@ -16,7 +17,9 @@ const GiftCard = () => {
                 />
               </figure>
               <div className="text-center py-3 py-md-5">
-              <Button buttonStyle='btn--outline'>GIFT CARD</Button>
+                <Link to="/giftCardLink/:">
+                  <Button buttonStyle="btn--outline">GIFT CARD</Button>
+                </Link>
               </div>
             </div>
           </div>

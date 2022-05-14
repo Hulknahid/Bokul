@@ -1,7 +1,24 @@
-import React from "react";
+import React,  { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import ProductsD2 from "./ProductsD2";
 
 const Products = () => {
+  let params =  useParams();
+  // console.log("params:", params.productId);
+
+  const [details, setDetails] = useState({})
+
+  useEffect(()=>{
+    axios.get(`inventory/variant/${params.productId}`).then(res =>{
+      // console.log("products-details:", res.data);
+      setDetails(res.data)
+    }).catch(err=>{
+      console.log(err.response);
+    })
+  },[])
+  // console.log("details :",  details);
+  // console.log("nahid :",  details.variant);
   return (
     <>
       <div className="container-fluid mt-3 details">
@@ -11,7 +28,7 @@ const Products = () => {
               <div className="col-md-6 col-12">
                 <figure>
                   <img
-                    src="https://zoracorp.s3.amazonaws.com/bianca/common/prdct/aveda/1406.png"
+                    src={details && details.variant && details.variant.imageUrls[0]}
                     alt="Product_image"
                     className="img-fluid"
                   />
@@ -20,10 +37,11 @@ const Products = () => {
               <div className="col-md-6 col-12 text-right">
                 <div>
                   <h5 className="products_h5">
-                    a gift of renewal for your journey hand relief tri
+                    {/* a gift of renewal for your journey hand relief tri */}
+                    {details.variant && details.variant.product.name}
                   </h5>
-                  <h6>$33.08</h6>
-                  <p className="text-muted">AVEDA</p>
+                  <h6>$ {details.salePrice}</h6>
+                  <p className="text-muted">{details.variant && details.variant.product.name}</p>
                 </div>
 
                 <ProductsD2 />

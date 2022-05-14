@@ -103,6 +103,7 @@
 
 .products_h5 {
   text-transform: uppercase;
+  margin-top: 20px;
 }
 
 .pasignation {
@@ -269,7 +270,10 @@
 Input {
   border-radius: 20px !important;
 }
-
+.img_div{
+  background: url(../public/assets/images/1.jpg)  no-repeat center center / cover;
+  height: 400px;
+}
 @media screen and (max-width: 786px) {
   .form {
     width: 100%;

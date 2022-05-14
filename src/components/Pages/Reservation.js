@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, FormGroup, Label, Input } from "reactstrap";
 import axios from 'axios';
+import { Link } from "react-router-dom";
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
 
@@ -81,10 +82,14 @@ const Reservation = () => {
                         <button className="reservation_btn">LOGIN</button>
                       </div>
                       <div className="col-6 col-md-8 text-end">
+                        <Link to='/forgetPassword/:'>
                         <p className="m-0 l_title">Lost your password?</p>
+                        </Link>
                       </div>
                       <div className="col-12 text-center mt-3">
+                      <Link to='/creatAccount/:'>
                         <p className="m-0">Don't have an account. Register?</p>
+                        </Link>
                       </div>
                     </div>
                   </div>

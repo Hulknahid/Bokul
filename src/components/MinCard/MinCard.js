@@ -1,6 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../MinCard/MinCard.css";
-// import MinCardCom from "./MinCardCom";
 
 const MinCard = () => {
   return (
@@ -17,18 +17,22 @@ const MinCard = () => {
                 />
               </div>
               <div className="col-10 col-md-4 mt-3 mt-md-0">
-                <img
-                  src="assets/images/min-card-02.jpg"
-                  alt="min-card-img"
-                  className="img-fluid min-card-img"
-                />
+                <Link to="/Reservation">
+                  <img
+                    src="assets/images/min-card-02.jpg"
+                    alt="min-card-img"
+                    className="img-fluid min-card-img"
+                  />
+                </Link>
               </div>
               <div className="col-10 col-md-4 mt-3 mt-md-0">
-                <img
-                  src="assets/images/min-card-03.jpg"
-                  alt="min-card-img"
-                  className="img-fluid min-card-img"
-                />
+                <Link to="/GiftCard">
+                  <img
+                    src="assets/images/min-card-03.jpg"
+                    alt="min-card-img"
+                    className="img-fluid min-card-img"
+                  />
+                </Link>
               </div>
             </div>
           </div>

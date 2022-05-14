@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Label, FormGroup, Input } from "reactstrap";
 import axios from "axios";
+import { Link } from "react-router-dom";
 const Contact = () => {
   const [user, setUser] = useState({
     name: "",
@@ -8,7 +9,6 @@ const Contact = () => {
     subject: "",
     message: "",
   });
-  const [users, setUsers] = useState([]);
 
   const changeHandler = (event) => {
     const { name, value } = event.target;
@@ -18,44 +18,27 @@ const Contact = () => {
   const submiteHandler = (e) => {
     const { name, email, subject, message } = user;
     e.preventDefault();
-    // const data = {
-    //   name: name,
-    //   contactEmail: email,
-    //   subject: subject,
-    //   body: message,
-    //   location: {
-    //     id: 101,
-    //   },
-    // };
 
-    // axios
-    //   .post("inquiries", data)
-    //   .then((res) => {
-    //     console.log(res.data);
-    //   })
-    //   .catch(err.response);
+    clearState();
 
-    // clearState();
+    const data = {
+      name: name,
+      contactEmail: email,
+      subject: subject,
+      body: message,
+      location: {
+        id: 101,
+      },
+    };
 
-
-  const data = {
-    name:name,
-    contactEmail: email,
-    subject: subject,
-    body: message,
-    location: {
-      id: 101,
-    }
-  }
-
-
-
-
-    axios.post('inquiries', data).then(res =>{
-      console.log(res.data);
-    }).catch(err=>{
-      console.log(err.response);
-    })
+    axios
+      .post("inquiries", data)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
   };
 
   const clearState = () => {
@@ -80,7 +63,10 @@ const Contact = () => {
                   className="img-fluid"
                 />
               </figure>
-              <button className="contact_btn mb-3">ONLINE BOOK NOW</button>
+
+              <Link to="/Reservation">
+                <button className="contact_btn mb-3">ONLINE BOOK NOW</button>
+              </Link>
             </div>
 
             <div className="col-md-6 col-12">
@@ -151,7 +137,9 @@ const Contact = () => {
                   <button className="contact_btn">Business hours</button>
                 </div>
                 <div className="gift_card_btn">
+                  <Link to='/GiftCard'>
                   <button className="contact_btn fs-6">buy gift cards</button>
+                  </Link>
                 </div>
               </div>
             </div>
