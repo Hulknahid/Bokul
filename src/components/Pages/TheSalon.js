@@ -20,7 +20,7 @@ const TheSalon = () => {
           <div className="col-10 mx-auto">
             <div className="row d-flex align-items-center justify-content-center">
               <div className="col-md-4 col-10">
-                <Link to="/myTeam/:">
+                <Link to="/myTeam">
                   <div className="salon_container mt-3">
                     <h5 className="text-center">MEET THE TEAM</h5>
                     <img
@@ -37,7 +37,7 @@ const TheSalon = () => {
               </div>
 
               <div className="col-md-4 col-10">
-                <Link to="/ourLocation/:">
+                <Link to="/ourLocation">
                   <div className="salon_container mt-2">
                     <h5 className="text-center">OUR SALON</h5>
                     <img
@@ -54,7 +54,7 @@ const TheSalon = () => {
               </div>
 
               <div className="col-md-4 col-10">
-                <Link to="/service/:">
+                <Link to="/service">
                   <div className="salon_container mt-2">
                     <h5 className="text-center">SERVICES</h5>
                     <img

@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 const Service = () => {
   const getAppSettings = localStorage.getItem("app-settings");
   const parseData = JSON.parse(getAppSettings);
@@ -82,17 +83,18 @@ const Service = () => {
           allowFullScreen
         ></iframe>
       </div>
-      <div className="btn_services text-center mb-3">
-        <Button buttonStyle="btn--primary" buttonSize="btn--medium">
-          BOOK NOW
-        </Button>
+      <div className="text-center mb-2">
+        <Link to="/login">
+           <button className="services_btn">BOOK NOW</button>
+        </Link>
       </div>
       <p className="text-center fs-6 m-0">
-        There is a 24hr cancellation policy for all appointments. 
+        There is a 24hr cancellation policy for all appointments.
       </p>
-      <p className="text-center fs-6">Appointments
-        not cancelled with at least 24hrs notice are subject to a charge equal
-        to 50% of the service appointment.</p>
+      <p className="text-center fs-6">
+        Appointments not cancelled with at least 24hrs notice are subject to a
+        charge equal to 50% of the service appointment.
+      </p>
     </>
   );
 };

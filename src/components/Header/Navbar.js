@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import logo from './assets/images/logo.png';
 
 // import classnames from "classnames";
-
+import { FcBusiness } from "react-icons/fc";
 import {
   Navbar,
   NavbarBrand,
@@ -15,12 +15,16 @@ import {
   NavLink,
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import Sidebar from "../Pages/Sidebar";
 
-
-const Header = () => {
+const Header = (props) => {
+  console.log(props);
   const [show, setShow] = useState(false);
+  const [click, setClick] = useState("active")
   // const clickHandle = () => setShow(!show);
   return (
+    <>
+    <Sidebar cls={click} setClick={()=> setClick("")}/>
     <div>
       <div>
         <Navbar color="light" expand="md" light className="fixed-top">
@@ -41,25 +45,29 @@ const Header = () => {
             {/*<Collapse navbar className={classnames({ show: show === true })}>*/}
             <Nav className="mx-auto" navbar>
               <NavItem>
-                <Link className="nav-link" to="/Salon/">The Salon</Link>
+                <Link className="nav-link" to="/salon/">The Salon</Link>
               </NavItem>
               <NavItem>
-                <Link className="nav-link"  to="/Shop/">Shop</Link>
+                <Link className="nav-link"  to="/shop/">Shop</Link>
               </NavItem>
               <NavItem>
-                <Link className="nav-link" to="/Reservation/">Reservation</Link>
+                <Link className="nav-link" to="/reservation/">Reservation</Link>
               </NavItem>
               <NavItem>
-                <Link className="nav-link" to="/GiftCard/">Gift Card</Link>
+                <Link className="nav-link" to="/giftCard/">Gift Card</Link>
               </NavItem>
               <NavItem>
-                <Link className="nav-link" to="/Contact/">Contact Us </Link>
+                <Link className="nav-link" to="/contact/">Contact Us</Link>
+              </NavItem>
+              <NavItem>
+                <button onClick={()=>{setClick('active')}}> <FcBusiness/></button>
               </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
       </div>
     </div>
+    </>
   );
 };
 

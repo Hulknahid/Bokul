@@ -1,18 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   TabContent, TabPane, Nav,
   NavItem, NavLink, Row, Col
 } from 'reactstrap';
 import classnames from 'classnames';
-import axios from 'axios';
 
 const ProductsD2 = () => {
-  useEffect(()=>{
-  axios.get('inventory?locId=101&brndIds=1,3,2&page=0&pageCount=24').then(res =>{
-    console.log("newDetails:", res.data)
-  })
-  },[]);
   // State for current active Tab
   const [currentActiveTab, setCurrentActiveTab] = useState('1');
 
